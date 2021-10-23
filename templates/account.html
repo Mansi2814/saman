@@ -23,7 +23,7 @@
                     <div class="column4" style="height: 400px">
                         <img src="{{ order.product_img.url }}">
                         <h4>{{ order.name}} x {{ order.quantity_ordered }}</h4>
-                        <p>${{ order.Price }}</p>
+                        <p>₹{{ order.Price }}</p>
                         Status :Order Placed<br>Expected : {{ order.expected_delivery }}
                         <p><b>Cash on Delivery</b></p>
                     </div>
@@ -34,7 +34,7 @@
                     <div class="column4" style="height: 400px">
                         <img src="{{ order.product_img.url }}">
                         <h4>{{ order.name}} x {{ order.quantity_ordered }}</h4>
-                        <p>${{ order.Price }}</p>
+                        <p>₹{{ order.Price }}</p>
                         Status :Order Delivered<br>Delivered on {{ order.delivered_on }}
                         <p><b>Cash on Delivery</b></p>
                     </div>

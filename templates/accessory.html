@@ -6,10 +6,12 @@
     {%  load static %}
     <div class="row1">
         <div class="menColumn1">
-            <p>Exclusiverly Available on Khito</p>
-            <h1>Bata ki chppl</h1>
-            <small>"Lorem ipsum dolor sit amet, co eiusmod tempor ilore magna aliqua.Ut enim ad minim veniam
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <br> </small>
+            <p>Exclusiverly Available on Saman</p>
+            <h1>Best Of Accessories</h1>
+            <small>While clothes maketh the man, the type of footwear you wear reflects your personality. We
+                        bring you an exhaustive lineup of options in casual shoes for men, such as sneakers and loafers.
+                        Saman is one of the best online shopping sites for classy accessories that perfectly complement
+                        your outfits. You can select smart analogue or digital watches.<br> </small>
             <a href="/accessory/#explore_accessory" class="btn1">Explore More</a>
         </div>
         <div class="menColumn1">
@@ -37,7 +39,7 @@
                         </div>
                         <div class="cardBody">
                             {{ shoe.desc }}
-                            <p>${{ shoe.Price }}</p>
+                            <p>₹{{ shoe.Price }}</p>
                         </div>
                     </div>
                 </div>
@@ -46,10 +48,10 @@
                     <div onclick="togglePopup('input_{{ shoe.product_id }}')">
                         <img src="{{ shoe.product_img.url }}">
                         <h4>{{ shoe.name }}</h4>
-                        <p>${{ shoe.Price }}</p>
+                        <p>₹{{ shoe.Price }}</p>
                     </div>
                         {% if shoe.addedToCart %}
-                            <button type="button" class="btnCart">Added To Cart</button>
+                            <button type="button" class="btnCart btnAdded">Added To Cart</button>
                         {% else %}
                             <a href="/addToCart/{{ shoe.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
                         {% endif %}
@@ -75,7 +77,7 @@
                         </div>
                         <div class="cardBody">
                             {{ watch.desc }}
-                            <p>${{ watch.Price }}</p>
+                            <p>₹{{ watch.Price }}</p>
                         </div>
                     </div>
                 </div>
@@ -84,10 +86,10 @@
                     <div onclick="togglePopup('input_{{ watch.product_id }}')">
                         <img src="{{ watch.product_img.url }}">
                         <h4>{{ watch.name }}</h4>
-                        <p>${{ watch.Price }}</p>
+                        <p>₹{{ watch.Price }}</p>
                     </div>
                         {% if watch.addedToCart %}
-                            <button type="button" class="btnCart">Added To Cart</button>
+                            <button type="button" class="btnCart btnAdded">Added To Cart</button>
                         {% else %}
                             <a href="/addToCart/{{ watch.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
                         {% endif %}
@@ -113,7 +115,7 @@
                         </div>
                         <div class="cardBody">
                             {{ perfume.desc }}
-                            <p>${{ perfume.Price }}</p>
+                            <p>₹{{ perfume.Price }}</p>
                         </div>
                     </div>
                 </div>
@@ -122,10 +124,10 @@
                     <div onclick="togglePopup('input_{{ perfume.product_id }}')">
                         <img src="{{ perfume.product_img.url }}">
                         <h4>{{ perfume.name }}</h4>
-                        <p>${{ perfume.Price }}</p>
+                        <p>₹{{ perfume.Price }}</p>
                     </div>
                         {% if perfume.addedToCart %}
-                            <button type="button" class="btnCart">Added To Cart</button>
+                            <button type="button" class="btnCart btnAdded">Added To Cart</button>
                         {% else %}
                             <a href="/addToCart/{{ perfume.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
                         {% endif %}
@@ -150,7 +152,7 @@
                         </div>
                         <div class="cardBody">
                             {{ glass.desc }}
-                            <p>${{ glass.Price }}</p>
+                            <p>₹{{ glass.Price }}</p>
                         </div>
                     </div>
                 </div>
@@ -159,10 +161,10 @@
                     <div onclick="togglePopup('input_{{ glass.product_id }}')">
                         <img src="{{ glass.product_img.url }}">
                         <h4>{{ glass.name }}</h4>
-                        <p>${{ glass.Price }}</p>
+                        <p>₹{{ glass.Price }}</p>
                     </div>
                         {% if glass.addedToCart %}
-                            <button type="button" class="btnCart">Added To Cart</button>
+                            <button type="button" class="btnCart btnAdded">Added To Cart</button>
                         {% else %}
                             <a href="/addToCart/{{ glass.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
                         {% endif %}
@@ -187,7 +189,7 @@
                         </div>
                         <div class="cardBody">
                             {{ offer.desc }}
-                            <p>${{ offer.Price }}</p>
+                            <p>₹{{ offer.Price }}</p>
                         </div>
                     </div>
                 </div>
@@ -196,10 +198,10 @@
                     <div onclick="togglePopup('input_{{ offer.product_id }}')">
                         <img src="{{ offer.product_img.url }}">
                         <h4>{{ offer.name }}</h4>
-                        <p>${{ offer.Price }}</p>
+                        <p>₹{{ offer.Price }}</p>
                     </div>
                         {% if offer.addedToCart %}
-                            <button type="button" class="btnCart">Added To Cart</button>
+                            <button type="button" class="btnCart btnAdded">Added To Cart</button>
                         {% else %}
                             <a href="/addToCart/{{ offer.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
                         {% endif %}
