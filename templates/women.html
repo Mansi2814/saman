@@ -1,0 +1,176 @@
+{%  extends 'base.html' %}
+
+{% block title %} Women {% endblock title %}
+
+{% block main %}
+    {% load static %}
+            <div class="row1">
+                <div class="menColumn1">
+                    <p>Exclusiverly Available on Khito</p>
+                    <h1>Bata ki chppl</h1>
+                    <small>"Lorem ipsum dolor sit amet, co eiusmod tempor ilore magna aliqua.Ut enim ad minim veniam
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <br> </small>
+                    <a href="/women/#explore_women" class="btn1">Explore More</a>
+                </div>
+                <div class="menColumn1">
+                    <img src="{%  static "/img/hmw1.png" %}" class="offerImg">
+                </div>
+            </div>
+{% endblock main %}
+
+{% block body %}
+    {% load static %}
+    <!--------Latest Products----------->
+    <!--------Latest Products----------->
+    <div class="subFeatured">
+        <div id="explore_women"></div>
+        <h2 class="titleFtr">Shirts For Women</h2>
+        <div class="row1">
+            {% for shirt in shirts %}
+                <div class="popup" id="input_{{ shirt.product_id }}">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <div class="cardHead">
+                            <span class="cardTitle">{{ shirt.name}}</span>
+                            <button class="closeBtn" onclick="togglePopup('input_{{ shirt.product_id }}')">&times;</button>
+                        </div>
+                        <div class="cardImg">
+                            <img src="{{ shirt.product_img.url}}">
+                        </div>
+                        <div class="cardBody">
+                            {{ shirt.desc }}
+                            <p>${{ shirt.Price }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column4">
+                    <div id="{{ shirt.product_id }}"></div>
+                    <div onclick="togglePopup('input_{{ shirt.product_id }}')">
+                        <img src="{{ shirt.product_img.url}}">
+                        <h4>{{ shirt.name}}</h4>
+                        <p>${{ shirt.Price }}</p>
+                    </div>
+                    {% if shirt.addedToCart %}
+                        <button type="button" class="btnCart">Added To Cart</button>
+                    {% else %}
+                        <a href="/addToCart/{{ shirt.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!--------Latest Products----------->
+    <div class="subFeatured">
+        <h2 class="titleFtr">Trousers For Women</h2>
+        <div class="row1">
+            {% for trouser in trousers %}
+                <div class="popup" id="input_{{ trouser.product_id }}">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <div class="cardHead">
+                            <span class="cardTitle">{{ trouser.name}}</span>
+                            <button class="closeBtn" onclick="togglePopup('input_{{ trouser.product_id }}')">&times;</button>
+                        </div>
+                        <div class="cardImg">
+                            <img src="{{ trouser.product_img.url}}">
+                        </div>
+                        <div class="cardBody">
+                            {{ trouser.desc }}
+                            <p>${{ trouser.Price }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column4">
+                    <div id="{{ trouser.product_id }}"></div>
+                    <div onclick="togglePopup('input_{{ trouser.product_id }}')">
+                        <img src="{{ trouser.product_img.url}}">
+                        <h4>{{ trouser.name}}</h4>
+                        <p>${{ trouser.Price }}</p>
+                    </div>
+                    {% if trouser.addedToCart %}
+                        <button type="button" class="btnCart">Added To Cart</button>
+                    {% else %}
+                        <a href="/addToCart/{{ trouser.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!---------offers----------->
+    <div class="offer">
+        <div class="offerPrice">Sale 50%</div>
+        <div class="subFeatured">
+            <div class="row1">
+                <div class="column1">
+                    <p>Exclusiverly Available on Khito</p>
+                    <h1>Bata ki chppl</h1>
+                    <small>"Lorem ipsum dolor sit amet, co eiusmod tempor ilore magna aliqua.Ut enim ad minim veniam
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <br> </small>
+                    <a href="/accessory/#offers" class="btn1">Buy Now</a>
+                </div>
+                <div class="column1">
+                    <img src="{% static "img/m80.png" %}" class="offerImg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------Latest Products----------->
+    <div class="subFeatured">
+        <h2 class="titleFtr">Winter Collection</h2>
+        <div class="row1">
+            {% for winter in winters %}
+                <div class="popup" id="input_{{ winter.product_id }}">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <div class="cardHead">
+                            <span class="cardTitle">{{ winter.name}}</span>
+                            <button class="closeBtn" onclick="togglePopup('input_{{ winter.product_id }}')">&times;</button>
+                        </div>
+                        <div class="cardImg">
+                            <img src="{{ winter.product_img.url}}">
+                        </div>
+                        <div class="cardBody">
+                            {{ winter.desc }}
+                            <p>${{ winter.Price }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column4">
+                    <div id="{{ winter.product_id }}"></div>
+                    <div onclick="togglePopup('input_{{ winter.product_id }}')">
+                        <img src="{{ winter.product_img.url}}">
+                        <h4>{{ winter.name}}</h4>
+                        <p>${{ winter.Price }}</p>
+                    </div>
+                    {% if winter.addedToCart %}
+                        <button type="button" class="btnCart">Added To Cart</button>
+                    {% else %}
+                        <a href="/addToCart/{{ winter.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!---------offers----------->
+    <div class="offer">
+        <div class="offerPrice">Sale 50%</div>
+        <div class="subFeatured">
+            <div class="row1">
+                <div class="column1">
+                    <p>Exclusiverly Available on Khito</p>
+                    <h1>Bata ki chppl</h1>
+                    <small>"Lorem ipsum dolor sit amet, co eiusmod tempor ilore magna aliqua.Ut enim ad minim veniam
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <br> </small>
+                    <a href="/accessory/#offers" class="btn1">Buy Now</a>
+                </div>
+                <div class="column1">
+                    <img src="{% static "img/m81.png" %}" class="offerImg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

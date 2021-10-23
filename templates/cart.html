@@ -1,0 +1,55 @@
+{%  extends 'base.html' %}
+
+{% block title %} Cart {% endblock title %}
+
+{% block body %}
+    <div class="subFeatured cartPage">
+        <table id="cartItems">
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+{#        {{ cartItems }}#}
+            {%for items in cartItems%}
+            <tr>
+                <td>
+                    <div class="cartInfo">
+                        <img src="{{ items.product_img.url}}" >
+                        <div>
+                            <p>{{ items.name}}</p>
+                            <small>Price:{{ items.Price }} <br></small>
+                            <a href="/delete_cartItem/{{ items.product_id }}/"><button class="btnCart">Remove</button></a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <form action="/changeQuantity/{{ items.product_id }}/" method="post" type="submit">
+                        {% csrf_token %}
+                        <input name="quantity" value="{{items.quantity}}">
+                    </form>
+                </td>
+                <td>{{ items.Price }}</td>
+            </tr>
+            {% endfor %}
+            <table class="totalPrice">
+                <tr>
+                    <td>Subtotal</td>
+                    <td>Rs. {{ subtotal }}</td>
+                    </tr>
+                    <tr>
+                    <td>Tax</td>
+                    <td>Rs. {{ tax }}</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>Rs. {{ total }}</td>
+                </tr>
+                <tr>
+                    <td><a href="/order_placed"><button class="btnCart">Pay Bill</button></a></td>
+                </tr>
+            </table>
+        </table>
+    </div>
+
+{% endblock body %}

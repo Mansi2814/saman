@@ -1,0 +1,45 @@
+{%  extends 'base.html' %}
+
+{% block title %} Profile {% endblock title %}
+
+{% block body %}
+    {%  load static %}
+    <div class="subFeatured">
+        <h2 class="titleFtr">Account Details</h2>
+        <div class="account">
+            <div class="accName"> <b class="accData">Name:</b> Mr Ajay Rathore</div>
+            <div class="accGmail"><b class="accData">Email:</b> aj***********3@gmail.com</div>
+            <div class="accGen"><b class="accData">Gender:</b> Male</div>
+            <div class="accAdd"><b class="accData">Address:</b> 12, Shiva Colony, Paschim Vihar, Delhi</div>
+       </div>
+    </div>
+
+  <!--------Latest Products----------->
+    <div class="subFeatured">
+        <h2 class="titleFtr">My Orders</h2>
+        <div class="row1 ">
+            {% for order in orderedItems %}
+                {% if order.deliverd == False %}
+                    <div class="column4" style="height: 400px">
+                        <img src="{{ order.product_img.url }}">
+                        <h4>{{ order.name}} x {{ order.quantity_ordered }}</h4>
+                        <p>${{ order.Price }}</p>
+                        Status :Order Placed<br>Expected : {{ order.expected_delivery }}
+                        <p><b>Cash on Delivery</b></p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% for order in orderedItems %}
+                {% if order.deliverd %}
+                    <div class="column4" style="height: 400px">
+                        <img src="{{ order.product_img.url }}">
+                        <h4>{{ order.name}} x {{ order.quantity_ordered }}</h4>
+                        <p>${{ order.Price }}</p>
+                        Status :Order Delivered<br>Delivered on {{ order.delivered_on }}
+                        <p><b>Cash on Delivery</b></p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock body %}

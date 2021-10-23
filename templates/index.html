@@ -1,0 +1,135 @@
+{%  extends 'base.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block main %}
+{% load static %}
+<div class="row1">
+    <div class="column1 left1">
+        <img src="{%  static "/img/sample2.png" %}" alt="image">
+    </div>
+    <div class="column1">
+        <h1>kya baat bhai <br> mauj krdi</h1>
+        <p>"Lorem ipsum dolor sit amet, co eiusmod tempor ilore magna aliqua.<br>Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
+        <a href="#explore" class="btn1">Explore More</a>
+    </div>
+</div>
+{% endblock main %}
+
+{% block body %}
+       {% comment %} featured categories {% endcomment %}
+    {% load static %}
+
+    <div id="explore"></div>
+    <div class="featured">
+        <div class="subFeatured">
+            <div class="row1">
+                <div class="column2">
+                    <a href="/men"><img src="{%  static "/img/hm1.png" %}"></a>
+                </div>
+                <div class="column2">
+                    <a href="/women"><img src="{%  static "/img/hm2.png" %}"></a>
+                </div>
+                <div class="column2">
+                    <a href="/accessory"><img src="{%  static "/img/hm3.png" %}"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+       {% comment %} featured products {% endcomment %}
+    <section></section>
+    <div class="subFeatured">
+        <h2 class="titleFtr">Featured Products</h2>
+        <div class="row1">
+            {% for l in featured %}
+                <div class="popup" id="input_{{ l.product_id }}">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <div class="cardHead">
+                            <span class="cardTitle">{{ l.name}}</span>
+                            <button class="closeBtn" onclick="togglePopup('input_{{ l.product_id }}')">&times;</button>
+                        </div>
+                        <div class="cardImg">
+                            <img src="{{ l.product_img.url}}">
+                        </div>
+                        <div class="cardBody">
+                            {{ l.desc }}
+                            <p>${{ l.Price }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column3">
+                    <div id="{{ l.product_id }}"></div>
+                    <div onclick="togglePopup('input_{{ l.product_id }}')">
+                        <img src="{{l.product_img.url}}">
+                        <h4>{{ l.name}}</h4>
+                        <p>{{l.Price}}</p>
+                    </div>
+                    {% if l.addedToCart %}
+                        <button type="button" class="btnCart">Added To Cart</button>
+                    {% else %}
+                        <a href="/addToCart/{{ l.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+          {% comment %} Latest Products {% endcomment %}
+    <div class="subFeatured">
+        <h2 class="titleFtr">Latest Products</h2>
+        <div class="row1">
+            {% for l in latest %}
+                <div class="popup" id="input_{{ l.product_id }}">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <div class="cardHead">
+                            <span class="cardTitle">{{ l.name}}</span>
+                            <button class="closeBtn" onclick="togglePopup('input_{{ l.product_id }}')">&times;</button>
+                        </div>
+                        <div class="cardImg">
+                            <img src="{{ l.product_img.url}}">
+                        </div>
+                        <div class="cardBody">
+                            {{ l.desc }}
+                            <p>${{ l.Price }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column4">
+                    <div id="{{ l.product_id }}"></div>
+                    <div onclick="togglePopup('input_{{ l.product_id }}')">
+                        <img src="{{l.product_img.url}}">
+                        <h4>{{ l.name}}</h4>
+                        <p>{{l.Price}}</p>
+                    </div>
+                    {% if l.addedToCart %}
+                        <button type="button" class="btnCart">Added To Cart</button>
+                    {% else %}
+                        <a href="/addToCart/{{ l.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+        {% comment %} offers {% endcomment %}
+    <div class="offer">
+        <div class="offerPrice">Sale 50%</div>
+        <div class="subFeatured">
+            <div class="row1">
+                <div class="column1">
+                    <p>Exclusiverly Available on Khito</p>
+                    <h1>Bata ki chppl</h1>
+                    <small>"Lorem ipsum dolor sit amet, co eiusmod tempor ilore magna aliqua.Ut enim ad minim veniam
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <br> </small>
+                    <a href="/accessory/#offers" class="btn1">Buy Now</a>
+                </div>
+                <div class="column1">
+                    <img src="{%  static "/img/m77.png" %}" class="offerImg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

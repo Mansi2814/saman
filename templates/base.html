@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} | SAMAN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{%  static "/css/style.css" %}">
+    <script async defer src="{%  static "/script/script.js" %}"></script>
+{#    <script src="script1.js"></script>#}
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navBar">
+                <div class="logo">
+                    <img src="{%  static "/img/logo.png" %}" width="125px" alt="logo">
+                </div>
+                <nav>
+                    <ul id="menuItems">
+                        <li> <a href="/">Home</a> </li>
+                        <li> <a href="/men">Men</a> </li>
+                        <li> <a href="/women">Women</a> </li>
+                        <li> <a href="/accessory">Accessories</a> </li>
+                    </ul>
+                </nav>
+                <a href="/cart" onclick="update()"> <img src="{%  static "/img/cart.png" %}" width="25px" height="25px"
+                        class="cartPng"></a>
+                <a href="/account"><img src="{%  static "/img/account.png" %}" class="accountIcon"></a>
+                <img src="{%  static "/img/menu.png" %}" class="menuIcon" onclick="menutoggle()">
+            </div>
+            {% block main %}
+            {% endblock main %}
+        </div>
+    </div>
+
+            {% block body %}
+            {% endblock body %}
+
+    <footer>
+        <div class="footerContent">
+            <div class="subFeatured">
+                <div class="row1">
+                    <div class="column1">
+                        <p>Exclusiverly </p>
+                        <small>"Lorem ipsum dolor sit amet, co eiusmod tempor ilore magna aliqua.Ut enim ad minim veniam
+                            <br> </small>
+                    </div>
+                </div>
+            </div>
+            <div class="footerCr">
+                <div class="copyright"><small>Copyright &#169 2021 Sste Nashe. Designed by N&M </small></div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
