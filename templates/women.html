@@ -6,10 +6,13 @@
     {% load static %}
             <div class="row1">
                 <div class="menColumn1">
-                    <p>Exclusiverly Available on Khito</p>
-                    <h1>Bata ki chppl</h1>
-                    <small>"Lorem ipsum dolor sit amet, co eiusmod tempor ilore magna aliqua.Ut enim ad minim veniam
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <br> </small>
+                    <p>Exclusiverly Available on Saman</p>
+                    <h1>Best Of Women's Wear</h1>
+                    <small>When it comes to women, shopping is more than just a therapy. We believe that it is a joyous
+                        activity where you get to choose a whole new lifestyle. If you would like access to a wide
+                        variety of products for women online shopping is the way to go. And of all the online shopping
+                        sites for women, Saman is the place to find the finest brands of women’s fashion and lifestyle
+                        products. <br> </small>
                     <a href="/women/#explore_women" class="btn1">Explore More</a>
                 </div>
                 <div class="menColumn1">
@@ -39,7 +42,7 @@
                         </div>
                         <div class="cardBody">
                             {{ shirt.desc }}
-                            <p>${{ shirt.Price }}</p>
+                            <p>₹{{ shirt.Price }}</p>
                         </div>
                     </div>
                 </div>
@@ -48,10 +51,10 @@
                     <div onclick="togglePopup('input_{{ shirt.product_id }}')">
                         <img src="{{ shirt.product_img.url}}">
                         <h4>{{ shirt.name}}</h4>
-                        <p>${{ shirt.Price }}</p>
+                        <p>₹{{ shirt.Price }}</p>
                     </div>
                     {% if shirt.addedToCart %}
-                        <button type="button" class="btnCart">Added To Cart</button>
+                        <button type="button" class="btnCart btnAdded">Added To Cart</button>
                     {% else %}
                         <a href="/addToCart/{{ shirt.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
                     {% endif %}
@@ -77,7 +80,7 @@
                         </div>
                         <div class="cardBody">
                             {{ trouser.desc }}
-                            <p>${{ trouser.Price }}</p>
+                            <p>₹{{ trouser.Price }}</p>
                         </div>
                     </div>
                 </div>
@@ -86,10 +89,10 @@
                     <div onclick="togglePopup('input_{{ trouser.product_id }}')">
                         <img src="{{ trouser.product_img.url}}">
                         <h4>{{ trouser.name}}</h4>
-                        <p>${{ trouser.Price }}</p>
+                        <p>₹{{ trouser.Price }}</p>
                     </div>
                     {% if trouser.addedToCart %}
-                        <button type="button" class="btnCart">Added To Cart</button>
+                        <button type="button" class="btnCart btnAdded">Added To Cart</button>
                     {% else %}
                         <a href="/addToCart/{{ trouser.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
                     {% endif %}
@@ -99,14 +102,14 @@
     </div>
     <!---------offers----------->
     <div class="offer">
-        <div class="offerPrice">Sale 50%</div>
+        <div class="offerPrice">Up To 50% OFF</div>
         <div class="subFeatured">
             <div class="row1">
                 <div class="column1">
-                    <p>Exclusiverly Available on Khito</p>
-                    <h1>Bata ki chppl</h1>
-                    <small>"Lorem ipsum dolor sit amet, co eiusmod tempor ilore magna aliqua.Ut enim ad minim veniam
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <br> </small>
+                    <p>Special Diwali Offer</p>
+                    <h1>Mochi Red Heels</h1>
+                    <small>Women Red Solid Pumps <br> Pair of red pointed toe pumps, has regular styling, closed back
+                        <br>Synthetic upper <br> Textured and patterned outsole, has a block heel <br> </small>
                     <a href="/accessory/#offers" class="btn1">Buy Now</a>
                 </div>
                 <div class="column1">
@@ -133,7 +136,7 @@
                         </div>
                         <div class="cardBody">
                             {{ winter.desc }}
-                            <p>${{ winter.Price }}</p>
+                            <p>₹{{ winter.Price }}</p>
                         </div>
                     </div>
                 </div>
@@ -142,10 +145,10 @@
                     <div onclick="togglePopup('input_{{ winter.product_id }}')">
                         <img src="{{ winter.product_img.url}}">
                         <h4>{{ winter.name}}</h4>
-                        <p>${{ winter.Price }}</p>
+                        <p>₹{{ winter.Price }}</p>
                     </div>
                     {% if winter.addedToCart %}
-                        <button type="button" class="btnCart">Added To Cart</button>
+                        <button type="button" class="btnCart btnAdded">Added To Cart</button>
                     {% else %}
                         <a href="/addToCart/{{ winter.product_id }}/"> <button type="button" class="btnCart">Add To Cart</button></a>
                     {% endif %}
@@ -156,14 +159,14 @@
 
     <!---------offers----------->
     <div class="offer">
-        <div class="offerPrice">Sale 50%</div>
+        <div class="offerPrice">Up To 50% OFF</div>
         <div class="subFeatured">
             <div class="row1">
                 <div class="column1">
-                    <p>Exclusiverly Available on Khito</p>
-                    <h1>Bata ki chppl</h1>
-                    <small>"Lorem ipsum dolor sit amet, co eiusmod tempor ilore magna aliqua.Ut enim ad minim veniam
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo <br> </small>
+                    <p>Special Diwali Offer</p>
+                    <h1>Gucci Watch</h1>
+                    <small>Black Ice Steel Analogue Watch 16766 <br> Display: Analogue <br>
+                        Movement: Quartz <br> Dial style: Solid round stainless steel dial<br> </small>
                     <a href="/accessory/#offers" class="btn1">Buy Now</a>
                 </div>
                 <div class="column1">

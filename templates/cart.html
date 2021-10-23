@@ -18,7 +18,7 @@
                         <img src="{{ items.product_img.url}}" >
                         <div>
                             <p>{{ items.name}}</p>
-                            <small>Price:{{ items.Price }} <br></small>
+                            <small>Price:₹{{ items.Price }} <br></small>
                             <a href="/delete_cartItem/{{ items.product_id }}/"><button class="btnCart">Remove</button></a>
                         </div>
                     </div>
@@ -29,21 +29,21 @@
                         <input name="quantity" value="{{items.quantity}}">
                     </form>
                 </td>
-                <td>{{ items.Price }}</td>
+                <td>₹{{ items.Price }}</td>
             </tr>
             {% endfor %}
             <table class="totalPrice">
                 <tr>
                     <td>Subtotal</td>
-                    <td>Rs. {{ subtotal }}</td>
+                    <td>₹ {{ subtotal }}</td>
                     </tr>
                     <tr>
                     <td>Tax</td>
-                    <td>Rs. {{ tax }}</td>
+                    <td>₹ {{ tax }}</td>
                 </tr>
                 <tr>
                     <td>Total</td>
-                    <td>Rs. {{ total }}</td>
+                    <td>₹ {{ total }}</td>
                 </tr>
                 <tr>
                     <td><a href="/order_placed"><button class="btnCart">Pay Bill</button></a></td>
