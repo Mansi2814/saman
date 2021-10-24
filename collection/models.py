@@ -39,11 +39,11 @@ class Men(models.Model):
         self.save()
 
     def ordered1(self):
-        self.ordered=True
-        self.save()
-
-    def change_quantity_ordered(self):
-        self.quantity_ordered=self.quantity
+        self.ordered = True
+        self.quantity_ordered = self.quantity
+        self.ordered_on=date.today()
+        self.expected_delivery=date.today() + timedelta(days=5)
+        self.delivered_on=date.today() + timedelta(days=4)
         self.save()
 
 
@@ -85,10 +85,10 @@ class Women(models.Model):
 
     def ordered1(self):
         self.ordered = True
-        self.save()
-
-    def change_quantity_ordered(self):
         self.quantity_ordered = self.quantity
+        self.ordered_on=date.today()
+        self.expected_delivery=date.today() + timedelta(days=5)
+        self.delivered_on=date.today() + timedelta(days=4)
         self.save()
 
 
@@ -129,11 +129,12 @@ class Accessory(models.Model):
 
     def ordered1(self):
         self.ordered = True
+        self.quantity_ordered = self.quantity
+        self.ordered_on=date.today()
+        self.expected_delivery=date.today() + timedelta(days=5)
+        self.delivered_on=date.today() + timedelta(days=4)
         self.save()
 
-    def change_quantity_ordered(self):
-        self.quantity_ordered = self.quantity
-        self.save()
 
 
 # class Orders(models.Model):
