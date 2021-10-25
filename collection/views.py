@@ -48,6 +48,10 @@ def index(request):
     return render(request, 'index.html',data)
 
 def men(request):
+    # all=Men.objects.all()
+    # for i in all:
+    #     i.ordered=False
+    #     i.save()
     shirts=Men.objects.filter(category="shirt")
     trousers = Men.objects.filter(category="trouser")
     winters = Men.objects.filter(category="winter")
@@ -57,6 +61,10 @@ def men(request):
     return render(request,'men.html',data)
 
 def women(request):
+    # all=Women.objects.all()
+    # for i in all:
+    #     i.ordered=False
+    #     i.save()
     shirts=Women.objects.filter(category="shirt")
     trousers = Women.objects.filter(category="trouser")
     winters = Women.objects.filter(category="winter")
@@ -66,6 +74,10 @@ def women(request):
     return render(request,'women.html',data)
 
 def accessory(request):
+    # all=Accessory.objects.all()
+    # for i in all:
+    #     i.ordered=False
+    #     i.save()
     shoes=Accessory.objects.filter(category="shoe")
     watches = Accessory.objects.filter(category="watch")
     perfumes = Accessory.objects.filter(category="perfume")
@@ -163,15 +175,12 @@ def order_placed(request):
     cartItems3 = Accessory.objects.filter(addedToCart=True)
     for i in cartItems1:
         i.ordered1()
-        i.change_quantity_ordered()
         i.deleted()
     for i in cartItems2:
         i.ordered1()
-        i.change_quantity_ordered()
         i.deleted()
     for i in cartItems3:
         i.ordered1()
-        i.change_quantity_ordered()
         i.deleted()
     # print("or",Orders.objects.all())
     return redirect('/account')
