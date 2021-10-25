@@ -78,7 +78,7 @@ nav ul li a:hover{
     }
 }
 .cartPng:hover{
-    transform: scale(150%);
+    transform: scale(120%);
 }
 .cartNo{
     color: red;

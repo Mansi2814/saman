@@ -23,6 +23,11 @@ from collection.models import Men,Women,Accessory
 
 
 def index(request):
+    cartItems1=Men.objects.filter(addedToCart=True)
+    cartItems2 = Women.objects.filter(addedToCart=True)
+    cartItems3 = Accessory.objects.filter(addedToCart=True)
+    itemsInCart= len(cartItems3)+len(cartItems2)+len(cartItems1)
+    # print("cartSize",itemsInCart)
     l1=Men.objects.filter(latest=True)
     l2=Women.objects.filter(latest=True)
     l3=Accessory.objects.filter(latest=True)
@@ -44,40 +49,43 @@ def index(request):
     for i in f3:
         featured.append(i)
     data={"latest":latest,
-          "featured":featured}
+          "featured":featured,
+          "itemsInCart":itemsInCart}
     return render(request, 'index.html',data)
 
 def men(request):
-    # all=Men.objects.all()
-    # for i in all:
-    #     i.ordered=False
-    #     i.save()
+    cartItems1=Men.objects.filter(addedToCart=True)
+    cartItems2 = Women.objects.filter(addedToCart=True)
+    cartItems3 = Accessory.objects.filter(addedToCart=True)
+    itemsInCart= len(cartItems3)+len(cartItems2)+len(cartItems1)
     shirts=Men.objects.filter(category="shirt")
     trousers = Men.objects.filter(category="trouser")
     winters = Men.objects.filter(category="winter")
     data={"shirts":shirts,
           "trousers":trousers,
-          "winters":winters}
+          "winters":winters,
+          "itemsInCart":itemsInCart}
     return render(request,'men.html',data)
 
 def women(request):
-    # all=Women.objects.all()
-    # for i in all:
-    #     i.ordered=False
-    #     i.save()
+    cartItems1=Men.objects.filter(addedToCart=True)
+    cartItems2 = Women.objects.filter(addedToCart=True)
+    cartItems3 = Accessory.objects.filter(addedToCart=True)
+    itemsInCart= len(cartItems3)+len(cartItems2)+len(cartItems1)
     shirts=Women.objects.filter(category="shirt")
     trousers = Women.objects.filter(category="trouser")
     winters = Women.objects.filter(category="winter")
     data={"shirts":shirts,
           "trousers":trousers,
-          "winters":winters}
+          "winters":winters,
+          "itemsInCart":itemsInCart}
     return render(request,'women.html',data)
 
 def accessory(request):
-    # all=Accessory.objects.all()
-    # for i in all:
-    #     i.ordered=False
-    #     i.save()
+    cartItems1=Men.objects.filter(addedToCart=True)
+    cartItems2 = Women.objects.filter(addedToCart=True)
+    cartItems3 = Accessory.objects.filter(addedToCart=True)
+    itemsInCart= len(cartItems3)+len(cartItems2)+len(cartItems1)
     shoes=Accessory.objects.filter(category="shoe")
     watches = Accessory.objects.filter(category="watch")
     perfumes = Accessory.objects.filter(category="perfume")
@@ -87,28 +95,41 @@ def accessory(request):
           "watches":watches,
           "perfumes":perfumes,
           "glasses":glasses,
-          "offers":offers}
+          "offers":offers,
+          "itemsInCart":itemsInCart}
     return render(request,'accessory.html',data)
 
 def account(request):
+    cartItems1=Men.objects.filter(addedToCart=True)
+    cartItems2 = Women.objects.filter(addedToCart=True)
+    cartItems3 = Accessory.objects.filter(addedToCart=True)
+    itemsInCart= len(cartItems3)+len(cartItems2)+len(cartItems1)
     orderedItems1=Men.objects.filter(ordered=True)
     orderedItems2 = Women.objects.filter(ordered=True)
     orderedItems3 = Accessory.objects.filter(ordered=True)
     orderedItems=[]
     for i in orderedItems1:
+        # i.ordered=False
+        # i.save()
         orderedItems.append(i)
     for i in orderedItems2:
+        # i.ordered = False
+        # i.save()
         orderedItems.append(i)
     for i in orderedItems3:
+        # i.ordered = False
+        # i.save()
         orderedItems.append(i)
-    data={"orderedItems": orderedItems}
-    print(orderedItems)
+    data={"orderedItems": orderedItems,
+          "itemsInCart":itemsInCart}
+    # print(orderedItems)
     return render(request,'account.html',data)
 
 def cart(request):
     cartItems1=Men.objects.filter(addedToCart=True)
     cartItems2 = Women.objects.filter(addedToCart=True)
     cartItems3 = Accessory.objects.filter(addedToCart=True)
+    itemsInCart= len(cartItems3)+len(cartItems2)+len(cartItems1)
     cartItems=[]
     for i in cartItems1:
         cartItems.append(i)
@@ -125,7 +146,8 @@ def cart(request):
     data={"cartItems":cartItems,
           "subtotal": subtotal,
           "tax": round(tax),
-          "total": total}
+          "total": total,
+          "itemsInCart":itemsInCart}
     return render(request,'cart.html',data)
 
 def addToCart(request,product_id):
